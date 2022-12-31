@@ -42,10 +42,7 @@ namespace try_reverse.service
 
         public void GeneratePatchedFile(string outfile, string data, int count, string patched, string replacement)
         {
-            byte[] modifiedBytes = Enumerable.Range(0, data.Length)
-                                     .Where(x => x % 2 == 0)
-                                     .Select(x => Convert.ToByte(data.Substring(x, 2), 16))
-                                     .ToArray();
+            byte[] modifiedBytes = StringToByteArray(data);
             File.WriteAllBytes(outfile, modifiedBytes);
             Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine($"Patched {count} occurences of {patched} with {replacement}.\n");
