@@ -14,7 +14,6 @@
             byte[] patch = { 0xC, 0x0, 0x0, 0x0, 0x37, 0x39, 0x2E, 0x31, 0x31, 0x30, 0x2E, 0x38, 0x34, 0x2E, 0x37, 0x35, 0x0, 0x0, 0x0, 0x0 };
             Console.WriteLine("What ip would you want to use ?\n");
             string ip = Console.ReadLine()!;
-            if (string.IsNullOrEmpty(ip)) return;
             string[] parts = ip.Split('.');
             var hexParts = parts.Select(part => Convert.ToInt32(part).ToString("X2")).ToList();
             var hexString = string.Join("2E", hexParts);
